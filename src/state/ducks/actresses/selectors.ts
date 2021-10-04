@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux"
-import { Actresses } from "./types"
 import { RootState } from "../types"
 
 // IDが小さい順に並び替えて選択
@@ -17,4 +16,9 @@ const getStatus = () => {
   return status
 }
 
-export { getSortedActresses, getStatus }
+const getScreen = () => {
+  const screen = useSelector((state: RootState) => state.actressesState.screen)
+  return screen
+}
+
+export { getSortedActresses, getStatus, getScreen }

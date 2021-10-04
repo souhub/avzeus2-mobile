@@ -5,6 +5,7 @@ import {
   ActressesActionTypes,
   Score,
   StatusActionTypes,
+  ScreenActionTypes,
 } from "./types"
 
 // ===========================================================================
@@ -82,6 +83,46 @@ const failedStatus = (): Action => {
   }
 }
 
+// ===========================================================================
+//                                  screen
+// ===========================================================================
+
+const homeScreen = (): Action => {
+  return {
+    type: ScreenActionTypes.HOME,
+  }
+}
+
+const scoreSelection = (): Action => {
+  return {
+    type: ScreenActionTypes.SCORE_SELECTION,
+  }
+}
+
+const scoreRecommendation = (): Action => {
+  return {
+    type: ScreenActionTypes.SCORE_RECOMMENDATION,
+  }
+}
+
+const imageSelection = (): Action => {
+  return {
+    type: ScreenActionTypes.IMAGE_SELECTION,
+  }
+}
+
+const imageRecommendation = (): Action => {
+  return {
+    type: ScreenActionTypes.IMAGE_RECOMMENDATION,
+  }
+}
+
+const item = (): Action => {
+  return {
+    type: ScreenActionTypes.ITEM,
+  }
+}
+
 export {
   setActressesWithScore,
   addActress,
@@ -92,4 +133,10 @@ export {
   loadingStatus,
   succeededStatus,
   failedStatus,
+  homeScreen,
+  scoreSelection,
+  imageSelection,
+  scoreRecommendation,
+  imageRecommendation,
+  item,
 }

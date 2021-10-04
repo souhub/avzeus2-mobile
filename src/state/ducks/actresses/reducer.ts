@@ -8,6 +8,8 @@ import {
   Score,
   Status,
   StatusActionTypes,
+  Screen,
+  ScreenActionTypes,
 } from "./types"
 
 const createActress = (actress: Actress) => {
@@ -57,9 +59,29 @@ const status = (state: Status = "idle", action: Action): Status => {
   }
 }
 
+const screen = (state: Screen = "home", action: Action): Screen => {
+  switch (action.type) {
+    case ScreenActionTypes.HOME:
+      return "home"
+    case ScreenActionTypes.SCORE_SELECTION:
+      return "scoreSelection"
+    case ScreenActionTypes.IMAGE_SELECTION:
+      return "imageSelection"
+    case ScreenActionTypes.SCORE_RECOMMENDATION:
+      return "scoreRecommendation"
+    case ScreenActionTypes.IMAGE_RECOMMENDATION:
+      return "imageRecommendation"
+    case ScreenActionTypes.ITEM:
+      return "item"
+    default:
+      return state
+  }
+}
+
 const reducer = combineReducers({
   actresses,
   status,
+  screen,
 })
 
 export { reducer }

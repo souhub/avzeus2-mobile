@@ -84,6 +84,34 @@ const faliedStatus = (): Action => {
   return actions.failedStatus()
 }
 
+// ===========================================================================
+//                                  screen
+// ===========================================================================
+
+const homeScreen = (): Action => {
+  return actions.homeScreen()
+}
+
+const scoreSelectionScreen = (): Action => {
+  return actions.scoreSelection()
+}
+
+const scoreRecommendationScreen = (): Action => {
+  return actions.scoreRecommendation()
+}
+
+const imageSelectionScreen = (): Action => {
+  return actions.imageSelection()
+}
+
+const imageRecommendationScreen = (): Action => {
+  return actions.imageRecommendation()
+}
+
+const itemScreen = (): Action => {
+  return actions.item()
+}
+
 export {
   setActressesWithScore,
   addActress,
@@ -94,4 +122,10 @@ export {
   loadingStatus,
   succeededStatus,
   faliedStatus,
+  homeScreen,
+  scoreSelectionScreen,
+  scoreRecommendationScreen,
+  imageSelectionScreen,
+  imageRecommendationScreen,
+  itemScreen,
 }

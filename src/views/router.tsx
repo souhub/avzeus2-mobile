@@ -1,29 +1,21 @@
 import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { createStackNavigator } from "@react-navigation/stack"
 import { NavigationContainer } from "@react-navigation/native"
-import { ScoreSelectionScreen } from "./components/pages/ScoreSelectionPage"
-import { HomeScreen } from "./components/pages/HomeScreen"
-import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import { Text, View } from "react-native"
-// export type RootStackParamList = {
-//   ScoreSelection: undefined
-//   ImageSelection: undefined
-// }
 
-// const RootStack = createStackNavigator<RootStackParamList>()
-
-import { ImageSelectionScreen } from "./components/pages/ImageSelectionPage"
+import { Index } from "."
+import { ItemScreen } from "./components/screens"
+import { actressesSelector } from "../state/ducks/actresses"
 
 const Stack = createNativeStackNavigator()
 
 export const Router = () => {
+  const screen = actressesSelector.getScreen()
+  const headerShown = () => (screen == "item" ? true : false)
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component={HomeScreen} />
-        <Stack.Screen name='ScoreSelection' component={ScoreSelectionScreen} />
-        <Stack.Screen name='ImageSelection' component={ImageSelectionScreen} />
+      <Stack.Navigator screenOptions={{ headerShown: headerShown() }}>
+        <Stack.Screen name='Index' component={Index} />
+        <Stack.Screen name='Item' component={ItemScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

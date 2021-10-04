@@ -37,6 +37,24 @@ export type Action =
   | {
       type: StatusActionTypes.FAILED
     }
+  | {
+      type: ScreenActionTypes.HOME
+    }
+  | {
+      type: ScreenActionTypes.SCORE_SELECTION
+    }
+  | {
+      type: ScreenActionTypes.SCORE_RECOMMENDATION
+    }
+  | {
+      type: ScreenActionTypes.IMAGE_SELECTION
+    }
+  | {
+      type: ScreenActionTypes.IMAGE_RECOMMENDATION
+    }
+  | {
+      type: ScreenActionTypes.ITEM
+    }
 
 export enum ActressesActionTypes {
   SET_WITH_SCORE = "actresses/initActresses",
@@ -53,7 +71,23 @@ export enum StatusActionTypes {
   FAILED = "status/failed",
 }
 
+export enum ScreenActionTypes {
+  HOME = "screen/home",
+  SCORE_SELECTION = "screen/scoreSelection",
+  IMAGE_SELECTION = "screen/imageSelection",
+  SCORE_RECOMMENDATION = "screen/scoreRecommendation",
+  IMAGE_RECOMMENDATION = "screen/imageRecommendation",
+  ITEM = "screen/item",
+}
+
 export type Status = "idle" | "loading" | "succeeded" | "failed"
+export type Screen =
+  | "home"
+  | "scoreSelection"
+  | "scoreRecommendation"
+  | "imageSelection"
+  | "imageRecommendation"
+  | "item"
 
 export interface Actress {
   id: Id
@@ -105,4 +139,5 @@ export type Actresses = Actress[]
 export interface ActressesState {
   actresses: Actresses
   status: Status
+  screen: Screen
 }

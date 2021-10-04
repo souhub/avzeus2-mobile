@@ -59,7 +59,7 @@ export const ImageSelectionScreen = ({ navigation }: any) => {
         <Button onPress={pickImage}>画像を選択</Button>
       </View>
 
-      {(image&&url) && (
+      {image && url && (
         <View>
           <Image source={{ uri: url }} size='xl' alt='selected image' />
           <Button

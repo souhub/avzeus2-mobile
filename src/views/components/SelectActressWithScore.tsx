@@ -1,5 +1,5 @@
 import React, { FC, memo, useState } from "react"
-import { Box, Text, Image, View, VStack, HStack } from "native-base"
+import { Box, Text, Image, VStack, HStack, Flex } from "native-base"
 import { useDispatch } from "react-redux"
 import { Slider } from "native-base"
 
@@ -23,28 +23,46 @@ export const SelectActressWithScore: FC<Props> = memo((props) => {
   const status = actressesSelector.getStatus()
 
   return (
-    <Box key={actress.id} style={{ marginBottom: 20 }}>
+    <Box key={actress.id} height={70}>
       <HStack>
-        <Slider
-          width='50%'
-          defaultValue={0}
-          colorScheme='pink'
-          size='lg'
-          onChange={(e) => setScoreView(e)} // リアルタイムでスコア確認する用
-          onChangeEnd={(e) => dispatch(actressesOperation.setScore(actress, e))} // 最終的にdispatchする用
-        >
-          <Slider.Track>
-            <Slider.FilledTrack />
-          </Slider.Track>
-          <Slider.Thumb />
-        </Slider>
-
-        <Box>
-          <Text>
-            {actress.name} {scoreView}
-          </Text>
-          <Image source={{ uri: url }} alt='an actress image' size='xl' />
+        <Box marginRight={5}>
+          <Image source={{ uri: url }} alt='an actress image' size='md' />
         </Box>
+
+        <VStack>
+          <Box marginBottom={3}>
+            <Text fontSize='xl' fontWeight='extrabold'>
+              {actress.name}
+            </Text>
+          </Box>
+          <Box>
+            <Flex direction='row' h={140} w={120}>
+              <Text>0</Text>
+
+              <Slider
+                marginX={3}
+                height='5'
+                // width='50%'
+                defaultValue={0}
+                colorScheme='pink'
+                size='lg'
+                onChange={(e) => setScoreView(e)} // リアルタイムでスコア確認する用
+                onChangeEnd={(e) =>
+                  dispatch(actressesOperation.setScore(actress, e))
+                } // 最終的にdispatchする用
+              >
+                <Slider.Track>
+                  <Slider.FilledTrack />
+                </Slider.Track>
+                <Slider.Thumb />
+              </Slider>
+              <Text> 100</Text>
+              <Text marginLeft={5} fontSize='3xl' fontWeight='extrabold'>
+                {scoreView}
+              </Text>
+            </Flex>
+          </Box>
+        </VStack>
       </HStack>
     </Box>
   )
