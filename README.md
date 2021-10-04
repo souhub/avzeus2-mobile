@@ -1,15 +1,5 @@
 # avzeus2-mobile
 
-## 設定
-
-### import の絶対パス化
-
-- tsconfig.json に baseUrl 追加
-- babel.config.js の設定変更
-- npm i babel-plugin-module-resolver をインストール
-
-参考：[expo で絶対パスを使って import したい | Zenn](https://zenn.dev/pankuz/articles/91f85e1fcfbfc505781b)
-
 ## ライブラリ
 
 - [NativeBase](https://nativebase.io/)
